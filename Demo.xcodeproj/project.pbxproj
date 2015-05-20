@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1D06081B0CEA7600A70A5F /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D06071B0CEA7600A70A5F /* UIView+Sizes.m */; };
 		9E7181931B0CA34E000CDA47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181921B0CA34E000CDA47 /* main.m */; };
 		9E7181961B0CA34E000CDA47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181951B0CA34E000CDA47 /* AppDelegate.m */; };
 		9E7181991B0CA34E000CDA47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181981B0CA34E000CDA47 /* ViewController.m */; };
@@ -14,7 +15,6 @@
 		9E71819E1B0CA34E000CDA47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E71819D1B0CA34E000CDA47 /* Images.xcassets */; };
 		9E7181A11B0CA34E000CDA47 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E71819F1B0CA34E000CDA47 /* LaunchScreen.xib */; };
 		9E7181AD1B0CA34E000CDA47 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181AC1B0CA34E000CDA47 /* DemoTests.m */; };
-		9E7181BA1B0CA3C8000CDA47 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181B91B0CA3C8000CDA47 /* UIView+Sizes.m */; };
 		9E7181C21B0CA3DC000CDA47 /* BMAlertHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181BD1B0CA3DC000CDA47 /* BMAlertHud.m */; };
 		9E7181C31B0CA3DC000CDA47 /* BMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7181C01B0CA3DC000CDA47 /* BMAlertView.m */; };
 /* End PBXBuildFile section */
@@ -30,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E1D06051B0CEA7600A70A5F /* SWCommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCommonMacro.h; sourceTree = "<group>"; };
+		9E1D06061B0CEA7600A70A5F /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
+		9E1D06071B0CEA7600A70A5F /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
 		9E71818D1B0CA34E000CDA47 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7181911B0CA34E000CDA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7181921B0CA34E000CDA47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,9 +46,6 @@
 		9E7181A61B0CA34E000CDA47 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E7181AB1B0CA34E000CDA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E7181AC1B0CA34E000CDA47 /* DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTests.m; sourceTree = "<group>"; };
-		9E7181B71B0CA3C8000CDA47 /* SWCommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCommonMacro.h; sourceTree = "<group>"; };
-		9E7181B81B0CA3C8000CDA47 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Sizes.h"; sourceTree = "<group>"; };
-		9E7181B91B0CA3C8000CDA47 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
 		9E7181BC1B0CA3DC000CDA47 /* BMAlertHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAlertHud.h; sourceTree = "<group>"; };
 		9E7181BD1B0CA3DC000CDA47 /* BMAlertHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAlertHud.m; sourceTree = "<group>"; };
 		9E7181BE1B0CA3DC000CDA47 /* BMAlertHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAlertHudDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E1D06041B0CEA7600A70A5F /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				9E1D06051B0CEA7600A70A5F /* SWCommonMacro.h */,
+				9E1D06061B0CEA7600A70A5F /* UIView+Sizes.h */,
+				9E1D06071B0CEA7600A70A5F /* UIView+Sizes.m */,
+			);
+			path = ThirdParty;
+			sourceTree = SOURCE_ROOT;
+		};
 		9E7181841B0CA34E000CDA47 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +109,7 @@
 				9E7181981B0CA34E000CDA47 /* ViewController.m */,
 				9E71819A1B0CA34E000CDA47 /* Main.storyboard */,
 				9E7181BB1B0CA3DC000CDA47 /* BMAlertHud */,
-				9E7181B61B0CA3C8000CDA47 /* ThirdParty */,
+				9E1D06041B0CEA7600A70A5F /* ThirdParty */,
 				9E71819D1B0CA34E000CDA47 /* Images.xcassets */,
 				9E71819F1B0CA34E000CDA47 /* LaunchScreen.xib */,
 				9E7181901B0CA34E000CDA47 /* Supporting Files */,
@@ -131,16 +141,6 @@
 				9E7181AB1B0CA34E000CDA47 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9E7181B61B0CA3C8000CDA47 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				9E7181B71B0CA3C8000CDA47 /* SWCommonMacro.h */,
-				9E7181B81B0CA3C8000CDA47 /* UIView+Sizes.h */,
-				9E7181B91B0CA3C8000CDA47 /* UIView+Sizes.m */,
-			);
-			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		9E7181BB1B0CA3DC000CDA47 /* BMAlertHud */ = {
@@ -257,11 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E7181C31B0CA3DC000CDA47 /* BMAlertView.m in Sources */,
+				9E1D06081B0CEA7600A70A5F /* UIView+Sizes.m in Sources */,
 				9E7181991B0CA34E000CDA47 /* ViewController.m in Sources */,
 				9E7181C21B0CA3DC000CDA47 /* BMAlertHud.m in Sources */,
 				9E7181961B0CA34E000CDA47 /* AppDelegate.m in Sources */,
 				9E7181931B0CA34E000CDA47 /* main.m in Sources */,
-				9E7181BA1B0CA3C8000CDA47 /* UIView+Sizes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

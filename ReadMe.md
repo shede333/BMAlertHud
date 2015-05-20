@@ -17,6 +17,16 @@
 * 目前支持0、1、2个按钮，3个以上的按钮暂不支持
 
 
+###使用方式
+
+很简单，就一行代码，直接调用**BMAlertHud**里的**静态方法**即可
+
+**注意**：
+	除了把**BMAlertHud文件夹**拷贝过去加入你的工程里，还要记得把**ThirdParty**文件夹也要拷贝过去加入你的工程里，因为**ThirdParty**里面是我依赖的第三方库
+
+
+
+
 ![图片丢失](/show_picture/alert_horizental.png)
 
 ![图片丢失](/show_picture/alert_vertical.png)
