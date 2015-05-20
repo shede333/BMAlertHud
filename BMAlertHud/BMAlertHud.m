@@ -204,16 +204,34 @@ typedef NS_ENUM(NSInteger, BMAlertHudStatus){
     model.delegate = delegate;
     model.alertView = alertView;
 
-    if (hud.modelOfShowing == nil) {
-        [self showAlertWithModel:model];
-    }else{
-        [hud.models addObject:model];
-    }
+    //将显示中的AlertView拉回，暂存起来，显示新的AlertView
+    [self fetchShowingAlertModel];
+    
+    [self showAlertWithModel:model];
     
     return alertView;
 }
 
 #pragma mark - Function - Private
+
++ (void)fetchShowingAlertModel{
+    BMAlertHud *hud = [BMAlertHud sharedInstance];
+    if (hud.modelOfShowing != nil) {
+        [hud.models addObject:hud.modelOfShowing];
+        [self hideShowingAlertView];
+    }
+}
+
++ (void)hideShowingAlertView{
+    BMAlertHud *hud = [BMAlertHud sharedInstance];
+    BMAlertViewController *rootController = (BMAlertViewController *)hud.alertWindow.rootViewController;
+    
+    [rootController removeShowingView];
+    hud.bgView.hidden = YES;
+    hud.modelOfShowing = nil;
+    hud.alertWindow.hidden = YES;
+    [hud.alertWindow resignKeyWindow];
+}
 
 + (void)showAlertWithModel:(BMAlertContentModel *)model{
     [BMAlertHud sharedInstance].modelOfShowing = model;
@@ -226,6 +244,7 @@ typedef NS_ENUM(NSInteger, BMAlertHudStatus){
     
     BMAlertHud *hud = [BMAlertHud sharedInstance];
     hud.bgView.alpha = 0;
+    hud.bgView.hidden = NO;
     [rootController addShowingView:alertView];
     
     hud.alertWindow.hidden = NO;
@@ -245,17 +264,14 @@ typedef NS_ENUM(NSInteger, BMAlertHudStatus){
 }
 
 + (void)handleAlertFinish{
-    BMAlertHud *hud = [BMAlertHud sharedInstance];
-    BMAlertViewController *rootController = (BMAlertViewController *)hud.alertWindow.rootViewController;
     
-    [rootController removeShowingView];
-    hud.modelOfShowing = nil;
-    hud.alertWindow.hidden = YES;
-    [hud.alertWindow resignKeyWindow];
+    [self hideShowingAlertView];
+    
+    BMAlertHud *hud = [BMAlertHud sharedInstance];
     
     if ([hud.models count] > 0) {
-        BMAlertContentModel *tmpModel = hud.models.firstObject;
-        [hud.models removeObjectAtIndex:0];
+        BMAlertContentModel *tmpModel = hud.models.lastObject;
+        [hud.models removeLastObject];
         [self showAlertWithModel:tmpModel];
     }
 }

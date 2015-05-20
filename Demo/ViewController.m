@@ -57,7 +57,7 @@
 
 - (void)addBtn2{
     UIButton *clickBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [clickBtn setTitle:@"click me!" forState:UIControlStateNormal];
+    [clickBtn setTitle:@"click me!叠加显示两个AlertView" forState:UIControlStateNormal];
     [clickBtn setBackgroundColor:[UIColor blueColor]];
     [clickBtn sizeToFit];
     clickBtn.centerX = self.view.width/2;
@@ -72,16 +72,30 @@
 
 - (void)actionClick2{
     //弹出两个 alert框
-//    [self actionClick1];
-//    [self actionClick1];
-
+    NSDictionary *attributes = @{NSForegroundColorAttributeName:[UIColor blueColor]};
+    
+    NSMutableAttributedString *message = [[NSMutableAttributedString alloc] initWithString:@"这是 文字高亮，模仿系统提示框的样式，但是可以定义文字格式"];
+    [message setAttributes:attributes
+                     range:NSMakeRange(3, 4)];
+    NSAttributedString *title = [[NSAttributedString alloc] initWithString:@"Alert Title-1"];
+    
+    //显示第1个Alert
+    [BMAlertHud showWithTitle:title
+                      message:message
+                     delegate:self
+            cancelButtonTitle:@"确定"
+            otherButtonTitles: nil];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        ALERT_VIEW_SHOW(@"111111", @"这是内容", @"yes");
+        //显示第2个Alert
+        NSAttributedString *title2 = [[NSAttributedString alloc] initWithString:@"Alert Title-2"];
+        [BMAlertHud showWithTitle:title2
+                          message:message
+                         delegate:self
+                cancelButtonTitle:@"确定"
+                otherButtonTitles: nil];
     });
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        ALERT_VIEW_SHOW(@"222222", @"这是内容", @"yes");
-    });
+
 }
 
 

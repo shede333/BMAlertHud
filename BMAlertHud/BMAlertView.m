@@ -160,8 +160,9 @@
         btn.titleLabel.font = ALFontOfCancelButton;
         [self addSubview:btn];
         height = btn.bottom;
-    }else if ([_buttons count] == 2){
-        for (int i = 0; i < [_buttons count]; i ++) {
+    }else{
+        //目前只支持2个按钮
+        for (int i = 0; i < 2; i ++) {
             CGRect tmpFrame = CGRectMake(i * (self.width/2), height, self.width/2, btnHeight);
             UIButton *btn = [self getBtnWithText:[_buttons objectAtIndex:i]
                                            frame:tmpFrame];
